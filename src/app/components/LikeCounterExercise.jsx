@@ -2,11 +2,19 @@
 // Importer CSS filen
 import "../component-style/like-counter-exercise.css";
 // TODO for studerende: Importer useState fra React
+import {useState} from "react";
 
 export default function LikeCounterExercise() {
   // TODO for studerende: Opret state variabler
+const [isLiked, setIsLiked] = useState(false);
+const [likes, setLikes] = useState(0);
 
   // TODO for studerende: Implementer handleLike funktionen
+  function handleLike () {
+    if (isLiked){
+      setLikes(likes++)
+    }
+  }
 
   return (
     <div className="exercise-container">
@@ -33,10 +41,12 @@ export default function LikeCounterExercise() {
 
         {/* Like sektion */}
         <div className="like-section">
-          <button
+          <button 
             // TODO for studerende: Tilføj liked class hvis isLiked er true
             className={`like-button`}
+
             // TODO for studerende: Tilføj onClick
+            onClick={() => setIsLiked(isLiked)}
           >
             {/* TODO for studerende: Vis det rigtige hjertet (❤️ / 🤍) i span elementet herunder  */}
             <span className="heart-icon">🤍</span>
